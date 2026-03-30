@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bolsonaro</title>
+    <meta name="theme-color" content="#009c3b">
+    <meta property="og:title" content="bolsonaro">
+    <meta property="og:description" content="é norte">
+    <meta property="og:type" content="video.other">
+    <meta property="og:image" content="https://cdn.cacao.qzz.io/uploads/8e26d692-4c31-42cd-92d1-97c58163d027">
+    <meta property="og:video" content="https://cdn.cacao.qzz.io/uploads/29bc801f-cfc8-4e7f-9568-f32fd3fde9ee">
+    <meta property="og:video:secure_url" content="https://cdn.cacao.qzz.io/uploads/29bc801f-cfc8-4e7f-9568-f32fd3fde9ee">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="bolsonaro">
+    <meta name="twitter:description" content="é norte">
+    <meta name="twitter:image" content="https://cdn.cacao.qzz.io/uploads/8e26d692-4c31-42cd-92d1-97c58163d027">
+    <meta name="twitter:player" content="https://cdn.cacao.qzz.io/uploads/29bc801f-cfc8-4e7f-9568-f32fd3fde9ee">
+    <meta name="twitter:player:width" content="1280">
+    <meta name="twitter:player:height" content="720">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+        }
+        #mediaContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            cursor: pointer;
+        }
+        #memeImage, #memeVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #memeVideo {
+            display: none;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            display: none;
+            background: transparent;
+        }
+        #mensagem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+        #cr {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -90%);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="mediaContainer">
+        <img id="memeImage" src="https://cdn.cacao.qzz.io/uploads/8e26d692-4c31-42cd-92d1-97c58163d027">
+        <div id="mensagem">Clique no Bolsonaro</div>
+        <div id="cr">(Feito com <3 - 2026 - @bunwhy/@yufumo & @anjelinobr)</div>
+        <video id="memeVideo">
+            <source src="https://cdn.cacao.qzz.io/uploads/29bc801f-cfc8-4e7f-9568-f32fd3fde9ee" type="video/mp4">
+        </video>
+        <div id="overlay"></div>
+    </div>
+    <script>
+        const container = document.getElementById('mediaContainer');
+        const image = document.getElementById('memeImage');
+        const video = document.getElementById('memeVideo');
+        const mensagem = document.getElementById('mensagem');
+        const overlay = document.getElementById('overlay');
+	const cr = document.getElementById("cr")
+        container.addEventListener('click', () => {
+            if (video.style.display !== 'block') {
+                image.style.display = 'none';
+                mensagem.style.display = 'none';
+                video.style.display = 'block';
+                overlay.style.display = 'block';
+                cr.style.display = "none"
+                video.volume = 1.0;
+                video.loop = true;
+                video.play().catch(e => console.log(e));
+            }
+        });
+
+        window.addEventListener('beforeunload', (e) => {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+</body>
+</html>
